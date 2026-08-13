@@ -280,10 +280,11 @@ Avoid:
 
 [PROJECT STRUCTURE]
 
-Generate complete code using this structure:
+Generate complete code using this structure (project root, next to Prompt.txt — do not nest in a subfolder):
 
-password_manager/
+.
 │
+├── Prompt.txt
 ├── package.json
 ├── main.js
 ├── vaultManager.js

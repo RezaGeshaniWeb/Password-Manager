@@ -1,0 +1,13 @@
+{
+  "name": "password-manager",
+  "version": "1.0.0",
+  "description": "Secure Password Manager CLI application",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "private": true
+}
