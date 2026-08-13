@@ -1,0 +1,319 @@
+[ROLE]
+
+You are a senior JavaScript / Node.js software engineer specializing in secure command-line applications, object-oriented design, encryption, and local data storage.
+
+[OBJECTIVE]
+
+Build a production-quality Password Manager CLI application using JavaScript and Node.js.
+
+The application must be fully functional, secure, modular, and object-oriented.
+
+[TECHNICAL CONSTRAINTS]
+
+Language:
+
+* JavaScript (ES2022+)
+* Node.js 20+
+
+Allowed Built-in Modules:
+
+* fs
+* path
+* crypto
+* readline
+* os
+* process
+* util
+
+Allowed Third-Party Packages:
+
+* None
+
+Do not use any third-party packages. Use only Node.js built-in modules.
+
+[PROJECT OVERVIEW]
+
+Create a secure Password Manager that allows users to:
+* Set a Master Password
+* Authenticate with Master Password
+* Store Credentials
+* Encrypt All Sensitive Data
+* Search Credentials
+* Update Credentials
+* Delete Credentials
+* View Stored Accounts
+* Persist Data Between Sessions
+
+
+The application runs entirely in the terminal.
+
+[CORE FEATURES]
+
+=== FEATURE 1: MASTER PASSWORD ===
+
+On first launch:
+
+* Ask user to create Master Password
+* Hash password using a secure algorithm
+* Store only hash
+* Never store plain text password
+
+On future launches:
+
+* Require Master Password login
+* Deny access if password is incorrect
+* Allow only 3 login attempts
+
+Requirements:
+
+* Use readline with muted / hidden input for password entry (do not echo characters)
+* Validate password strength
+* Use crypto.scrypt or crypto.pbkdf2 for secure password hashing with a random salt
+
+Password Rules:
+
+* Minimum 12 characters
+* Uppercase letter required
+* Lowercase letter required
+* Number required
+* Special character required
+
+=== FEATURE 2: PASSWORD VAULT ===
+
+Each credential record:
+
+{
+id,
+website,
+username,
+password,
+notes,
+created_at,
+updated_at
+}
+
+Features:
+
+* Add Credential
+* Edit Credential
+* Delete Credential
+* List Credentials
+* Search Credentials
+
+=== FEATURE 3: ENCRYPTION ===
+
+All sensitive data must be encrypted.
+
+Encrypt:
+
+* usernames
+* passwords
+* notes
+
+Requirements:
+
+* Use AES-256-GCM encryption via Node.js crypto module
+* Generate encryption key securely
+* Protect stored credentials
+* Store IV / auth tag with ciphertext as needed for correct decryption
+
+Never store plain text passwords.
+
+=== FEATURE 4: SEARCH ===
+
+Allow searching by:
+
+* Website
+* Username
+
+Search must be case-insensitive.
+
+=== FEATURE 5: PASSWORD GENERATOR ===
+
+Provide built-in password generator.
+
+User can choose:
+
+* Length
+* Include Symbols
+* Include Numbers
+* Include Uppercase
+
+Generate cryptographically secure passwords.
+
+Use crypto.randomInt / crypto.randomBytes.
+
+=== FEATURE 6: FILE STORAGE ===
+
+Persist all data locally.
+
+Files:
+
+master.json
+vault.json
+key.key
+
+Requirements:
+
+* Automatic save
+* Automatic load
+* Proper error handling
+* Corruption detection
+
+=== FEATURE 7: EXPORT ===
+
+Allow exporting vault data.
+
+Export formats:
+
+* JSON
+
+Before export:
+
+* Require Master Password verification
+
+=== FEATURE 8: SECURITY ===
+
+Implement:
+
+* Session timeout
+* Login attempt tracking
+* Secure key handling
+* Input validation
+
+Never print sensitive information unnecessarily.
+
+[OBJECT ORIENTED DESIGN]
+
+Use proper OOP architecture (ES6 classes).
+
+Required Classes:
+
+MasterPasswordManager
+
+Responsibilities:
+
+* Create master password
+* Verify password
+* Password hashing
+
+EncryptionManager
+
+Responsibilities:
+
+* Generate keys
+* Encrypt data
+* Decrypt data
+
+Credential
+
+Responsibilities:
+
+* Represent credential records
+
+VaultManager
+
+Responsibilities:
+
+* Add credentials
+* Update credentials
+* Delete credentials
+* Search credentials
+* Persist vault
+
+PasswordGenerator
+
+Responsibilities:
+
+* Generate secure passwords
+
+CLI
+
+Responsibilities:
+
+* User interface
+* Menus
+* User interactions
+
+[CLI MENU]
+
+Main Menu:
+
+1. Add Credential
+2. View Credentials
+3. Search Credential
+4. Update Credential
+5. Delete Credential
+6. Generate Password
+7. Export Vault
+8. Exit
+
+[ERROR HANDLING]
+
+Handle:
+
+* Missing files
+* Corrupted files
+* Invalid input
+* Wrong passwords
+* Empty fields
+
+Application must never crash unexpectedly.
+
+[CODE QUALITY]
+
+Requirements:
+
+* Production-level code
+* Clean architecture
+* JSDoc type annotations
+* JSDoc documentation comments
+* Comments where necessary
+* Reusable methods
+* Separation of concerns
+
+Avoid:
+
+* Global variables
+* Duplicate code
+* Monolithic functions
+
+[PROJECT STRUCTURE]
+
+Generate complete code using this structure:
+
+password_manager/
+│
+├── package.json
+├── main.js
+├── vaultManager.js
+├── encryptionManager.js
+├── passwordGenerator.js
+├── credential.js
+├── masterPassword.js
+├── storage/
+│   ├── master.json
+│   ├── vault.json
+│   └── key.key
+
+[OUTPUT FORMAT]
+
+Generate every file completely.
+
+Provide code for:
+
+1. package.json
+2. main.js
+3. masterPassword.js
+4. encryptionManager.js
+5. credential.js
+6. passwordGenerator.js
+7. vaultManager.js
+
+No pseudocode.
+
+No explanations.
+
+No placeholders.
+
+Generate a fully working application now.
